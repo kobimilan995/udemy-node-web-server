@@ -12,6 +12,10 @@ hbs.registerHelper('getNowYear', () => {
 	return new Date().getFullYear();
 });
 
+hbs.registerHelper('screamIt', (text) => {
+	return text.toUpperCase();
+});
+
 // app.use((req, res, next) => {
 // 	res.render('maintenance.hbs');
 // });
@@ -34,13 +38,15 @@ app.get('/', (req, res) => {
 });
 app.get('/about', (req, res) => {
 	res.render('about.hbs', {
-		pageTitle: 'About Page'
+		pageTitle: 'About Page',
+		welcomeMessage: 'Desi About'
 	});
 });
 
 app.get('/projects', (req, res) => {
 	res.render('projects.hbs', {
 		pageTitle: 'Projects Page',
+		welcomeMessage: 'Desi Projects',
 		currentYear: new Date()
 	});
 });
